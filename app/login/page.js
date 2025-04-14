@@ -8,10 +8,10 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === 'thedugout2025') {
-      localStorage.setItem('authorized', 'true');
+      document.cookie = "authorized=true; path=/";
       router.push('/');
     } else {
       setError('Contraseña incorrecta');
