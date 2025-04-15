@@ -17,6 +17,10 @@ export default function MatchupsPage() {
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-3xl font-bold mb-6">📋 Matchups - {matchupsData.fecha ?? 'Sin fecha'}</h1>
 
+    <pre className="bg-gray-800 text-green-400 text-xs p-4 rounded mb-4 overflow-auto">
+      {JSON.stringify(matchupsData, null, 2)}
+    </pre>
+
       <div className="overflow-auto">
         <table className="min-w-full bg-gray-900 border border-gray-700 text-sm">
           <thead>
