@@ -15,9 +15,7 @@ export default function MatchupsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
-      <h1 className="text-3xl font-bold mb-6">
-        📋 Matchups - {matchupsData.fecha ?? 'Sin fecha'}
-      </h1>
+      <h1 className="text-3xl font-bold mb-6">📋 Matchups - {matchupsData.fecha ?? 'Sin fecha'}</h1>
 
       <div className="overflow-auto">
         <table className="min-w-full bg-gray-900 border border-gray-700 text-sm">
@@ -41,15 +39,13 @@ export default function MatchupsPage() {
                 <td className="px-4 py-2">{juego.team}</td>
                 <td className="px-4 py-2">{juego.starter}</td>
                 <td className="px-4 py-2">{juego.margin?.toFixed(2)}</td>
-                <td className="px-4 py-2">
-                  {(juego.team_power_pct * 100).toFixed(1)}%
-                </td>
+                <td className="px-4 py-2">{(juego.team_power_pct * 100).toFixed(1)}%</td>
                 <td className="px-4 py-2">{juego.proj_score?.toFixed(2)}</td>
-                <td className="px-4 py-2">{juego.stats.pitcher_win_pct ?? 'N/A'}</td>
-                <td className="px-4 py-2">{juego.stats.p_whip ?? 'N/A'}</td>
-                <td className="px-4 py-2">{juego.stats.era ?? 'N/A'}</td>
-                <td className="px-4 py-2">{juego.stats.lineup_factor ?? 'N/A'}</td>
-                <td className="px-4 py-2">{juego.stats.streak_10_days ?? 'N/A'}</td>
+                <td className="px-4 py-2">{juego.stats?.pitcher_win_pct ?? 'N/A'}</td>
+                <td className="px-4 py-2">{juego.stats?.p_whip ?? 'N/A'}</td>
+                <td className="px-4 py-2">{juego.stats?.era ?? 'N/A'}</td>
+                <td className="px-4 py-2">{juego.stats?.lineup_factor ?? 'N/A'}</td>
+                <td className="px-4 py-2">{juego.stats?.streak_10_days ?? 'N/A'}</td>
               </tr>
             ))}
           </tbody>
