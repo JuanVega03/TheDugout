@@ -34,7 +34,7 @@ export default function MatchupsPage() {
             </tr>
           </thead>
           <tbody>
-            {matchupsData.juegos.map((juego, index) => (
+            {matchupsData.matchups.map((juego, index) => (
               <tr key={index} className="hover:bg-gray-800">
                 <td className="px-4 py-2">{juego.team}</td>
                 <td className="px-4 py-2">{juego.starter}</td>
