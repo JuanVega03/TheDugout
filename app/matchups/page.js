@@ -6,10 +6,19 @@ export default function MatchupsPage() {
   const [matchupsData, setMatchupsData] = useState(null);
 
   useEffect(() => {
-    fetch('/matchups_data.json')
-      .then((res) => res.json())
-      .then((data) => setMatchupsData(data));
-  }, []);
+  fetch('/matchups_data.json')
+    .then((res) => {
+      console.log("📦 Fetch response:", res);
+      return res.json();
+    })
+    .then((data) => {
+      console.log("📊 Datos recibidos:", data);
+      setMatchupsData(data);
+    })
+    .catch((err) => {
+      console.error("❌ Error al cargar matchups_data.json:", err);
+    });
+}, []);
 
   if (!matchupsData) return <div className="text-white p-6">Cargando datos...</div>;
 
