@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {
-  const isLoggedIn = request.cookies.get('authorized')?.value === 'true';
+  const cookie = request.headers.get('cookie') || '';
+  const isLoggedIn = cookie.includes('authorized=true');
   const isLoginPage = request.nextUrl.pathname === '/login';
 
   if (!isLoggedIn && !isLoginPage) {
