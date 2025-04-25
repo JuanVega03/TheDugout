@@ -6,29 +6,17 @@ export default function MatchupsPage() {
   const [matchupsData, setMatchupsData] = useState(null);
 
   useEffect(() => {
-  fetch('/matchups_data.json')
-    .then((res) => {
-      console.log("📦 Fetch response:", res);
-      return res.json();
-    })
-    .then((data) => {
-      console.log("📊 Datos recibidos:", data);
-      setMatchupsData(data);
-    })
-    .catch((err) => {
-      console.error("❌ Error al cargar matchups_data.json:", err);
-    });
-}, []);
+    fetch('/matchups_data.json')
+      .then((res) => res.json())
+      .then((data) => setMatchupsData(data))
+      .catch((err) => console.error("❌ Error al cargar matchups_data.json:", err));
+  }, []);
 
   if (!matchupsData) return <div className="text-white p-6">Cargando datos...</div>;
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-3xl font-bold mb-6">📋 Matchups - {matchupsData.fecha ?? 'Sin fecha'}</h1>
-
-    <pre className="bg-gray-800 text-green-400 text-xs p-4 rounded mb-4 overflow-auto">
-      {JSON.stringify(matchupsData, null, 2)}
-    </pre>
 
       <div className="overflow-auto">
         <table className="min-w-full bg-gray-900 border border-gray-700 text-sm">
